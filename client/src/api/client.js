@@ -1,4 +1,9 @@
-const BASE = '/api';
+// In local dev, Vite's proxy (see vite.config.js) forwards '/api' to the
+// backend, so the relative path works. Once the frontend is deployed
+// separately (e.g. on Vercel) there's no proxy, so it needs the backend's
+// real URL - set VITE_API_URL to something like https://your-backend.onrender.com/api
+// in the deployment platform's environment variables.
+const BASE = import.meta.env.VITE_API_URL || '/api';
 
 function getToken() {
   return localStorage.getItem('cartguard_token');
