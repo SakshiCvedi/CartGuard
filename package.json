@@ -1,0 +1,16 @@
+{
+  "name": "cartguard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CartGuard - abandoned cart recovery + low stock alerts demo app",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "seed": "node server/seed.js",
+    "server": "node server/index.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently -n SERVER,CLIENT -c blue,green \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

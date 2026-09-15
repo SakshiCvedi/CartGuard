@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/*
+  CartGuard design tokens — "shipping manifest" console.
+  Subject: a small operations tool a store owner checks daily to see what
+  needs attention (carts to recover, stock about to run out). Built around
+  a dockyard/warehouse-manifest feel: dark console surface, ledger-style
+  tabular rows, a warm signal palette for attention states rather than a
+  generic SaaS card kit.
+
+  Color:
+    --ink        #17262A  base console background (deep teal-charcoal, not near-black)
+    --panel      #1F3136  raised surface / row background
+    --panel-2    #26383D  hover / secondary surface
+    --paper      #EDEAE0  primary text (warm off-white, not pure white)
+    --steel      #8AA0A6  secondary text, borders, muted labels
+    --amber      #E2A63B  attention / pending (low stock, awaiting recovery)
+    --clay       #C1553A  critical (out of stock, urgent)
+    --moss       #7FA06B  success / recovered / healthy stock
+
+  Type:
+    Space Grotesk — headings, nav, section titles (technical, a little warmth)
+    Inter — body copy, UI labels, buttons
+    IBM Plex Mono — all numeric data: prices, quantities, SKUs, percentages
+                     (functional choice: aligns tabular figures, reads like a manifest)
+*/
+
+:root {
+  --ink: #17262a;
+  --panel: #1f3136;
+  --panel-2: #26383d;
+  --paper: #ededea;
+  --steel: #8aa0a6;
+  --amber: #e2a63b;
+  --clay: #c1553a;
+  --moss: #7fa06b;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.font-mono, .tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--panel-2); border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
